@@ -18,7 +18,14 @@ class FuelRequirements():
             if elemNoLineBreak.isdigit():
                 inputListConverted.append(int(elemNoLineBreak))
         return inputListConverted
-
+    
+    def calcExtraFuel(self, mass: int):
+        result = 0
+        massLeft = mass
+        while massLeft >= 9:
+            massLeft = self.calcFuelForMass(massLeft)
+            result += massLeft
+        return result
 
 class FuelRequirementsTest(unittest.TestCase):
     def setUp(self):
@@ -28,19 +35,25 @@ class FuelRequirementsTest(unittest.TestCase):
         self.assertEquals(2, self.fuelRequirements.calcFuelForMass(14))
 
     def test_1969(self):
-        self.assertEquals(654, self.fuelRequirements.calcFuelForMass(1969))
+        self.assertEqual(654, self.fuelRequirements.calcFuelForMass(1969))
 
     def test_100756(self):
-        self.assertEquals(33583, self.fuelRequirements.calcFuelForMass(100756))
+        self.assertEqual(33583, self.fuelRequirements.calcFuelForMass(100756))
+
+    def test_rec_100756(self):
+        self.assertEqual(50346, self.fuelRequirements.calcExtraFuel(100756))
+
+    def test_rec_9(self):
+        self.assertEqual(1, self.fuelRequirements.calcExtraFuel(9))
 
 
 if __name__ == "__main__":
     # unittest.main()
 
     fuel = FuelRequirements()
-    result = 0
+    result: int = 0
     inputListConverted = fuel.readFileInput(fuel.openInputFile())
     for elem in inputListConverted:
-        result = result + fuel.calcFuelForMass(elem)
-
+        result = result + fuel.calcExtraFuel(elem)
+    
     print(result)
