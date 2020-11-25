@@ -1,12 +1,14 @@
-from day_1 import FuelRequirements
+import sys
+sys.path.append('/workspace/advent_of_code_2020/advent/2019/src')
 import unittest
+from day_1 import FuelRequirements
 
 class FuelRequirementsTest(unittest.TestCase):
     def setUp(self):
         self.fuelRequirements = FuelRequirements()
 
     def test_14(self):
-        self.assertEquals(2, self.fuelRequirements.calcFuelForMass(14))
+        self.assertEqual(2, self.fuelRequirements.calcFuelForMass(14))
 
     def test_1969(self):
         self.assertEqual(654, self.fuelRequirements.calcFuelForMass(1969))
