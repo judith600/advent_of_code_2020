@@ -12,5 +12,7 @@ class BugStateTest(unittest.TestCase):
     def testSwitchWhenFourBugNeighbors(self):
         self.assertEqual(True, self.bugState.calculateIfSwitch(self.neighborList))
 
+        
+
 if __name__ == "__main__":
     unittest.main()
