@@ -1,6 +1,5 @@
 from ErisType import State
 from ErisType import EErisType
-import BugState
 
 class EmptyState(State):
 
@@ -10,7 +9,6 @@ class EmptyState(State):
         self.erisType = EErisType.EMPTY
 
     def calculateIfSwitch(self, neighbors):
-        return super().calculateIfSwitch(neighbors)
         countNeighborBugs = 0
         for elem in neighbors:
             if type(elem) == State and elem.erisType == EErisType.BUG:
@@ -19,8 +17,8 @@ class EmptyState(State):
             self.isSwitch = True
         return self.isSwitch
 
-    def switchState(self):
-        return BugState()
-
     def getIsSwitch(self):
         return self.isSwitch
+
+    def getDisplaySign(self):
+        return self.displaySign

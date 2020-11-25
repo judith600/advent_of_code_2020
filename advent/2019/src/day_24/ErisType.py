@@ -1,8 +1,8 @@
 from enum import Enum
 
 class EErisType(Enum):
-    BUG = 'Bug',
-    EMPTY = 'Empty'
+    BUG = 1,
+    EMPTY = 2
 
 class State:
     def __init__(self):
@@ -10,9 +10,8 @@ class State:
         self.erisType: EErisType
         self.isSwitch: bool = False
 
-    def update(self):
-        if self.isSwitch:
-            self.switchState()
+    def getType(self):
+        return self.erisType
 
     def switchState(self):
         raise NotImplementedError
