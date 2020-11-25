@@ -1,23 +1,12 @@
 import unittest as unittest
 import math as m
 import os
+from file_opener import *
 
 class FuelRequirements():
 
     def calcFuelForMass(self, mass: int):
         return m.floor(mass / 3) - 2
-
-    def openInputFile(self):
-        return open('./advent/2019/resources/input.txt')
-    
-    def readFileInput(self, file) -> list:
-        inputList: list[str] = file.readlines()
-        inputListConverted: list = []
-        for elem in inputList:
-            elemNoLineBreak: str = elem.replace("\n", "")
-            if elemNoLineBreak.isdigit():
-                inputListConverted.append(int(elemNoLineBreak))
-        return inputListConverted
     
     def calcExtraFuel(self, mass: int):
         result = 0
@@ -29,8 +18,9 @@ class FuelRequirements():
 
 if __name__ == "__main__":
     fuel = FuelRequirements()
+    fileOpener = FileOpener()
     result: int = 0
-    inputListConverted = fuel.readFileInput(fuel.openInputFile())
+    inputListConverted = fileOpener.readFileInput(fileOpener.openInputFile(2019, 'input.txt'))
     for elem in inputListConverted:
         result = result + fuel.calcExtraFuel(elem)
     
