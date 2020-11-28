@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/workspace/advent_of_code_2020/advent/2019/src')
+sys.path.append('/workspace/advent_of_code_2020/advent/year2019/src')
 from file_opener import FileOpener
 from ErisType import *
 from BugState import BugState
