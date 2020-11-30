@@ -1,6 +1,6 @@
 import math as m
 
-from advent.year2019.src.file_opener import FileOpener
+from advent.year2019.src.file_opener import readFileInput, openInputFile
 
 
 def calcFuelForMass(mass: int):
@@ -20,9 +20,8 @@ class FuelRequirements():
 
 if __name__ == "__main__":
     fuel = FuelRequirements()
-    fileOpener = FileOpener()
     result: int = 0
-    inputListConverted = fileOpener.readFileInput(fileOpener.openInputFile(2019, 'input.txt'))
+    inputListConverted = readFileInput(openInputFile(2019, 'input.txt'))
     for elem in inputListConverted:
         result = result + fuel.calcExtraFuel(elem)
 
