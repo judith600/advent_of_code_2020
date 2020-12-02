@@ -2,7 +2,7 @@ from typing import List
 
 
 def getInputFileLinesAsList(fileName: str) -> List[str]:
-    return open(fileName).readlines()
+    return [line.rstrip('\n') for line in open(fileName)]
 
 
 def getInputFileLinesAsString(fileName: str) -> str:
