@@ -2,11 +2,15 @@ from file_opener import getInputFileLinesAsList
 
 
 def calculateSeatColumn(columnInput: str) -> int:
+    if columnInput.__len__() != 3:
+        raise ValueError("Input must be 7 chars long.")
     columnRange = range(8)
     return calculateNumberByDirection(columnRange, columnInput, getNextColumnRange)
 
 
 def calculateSeatRow(rowInput: str) -> int:
+    if rowInput.__len__() != 7:
+        raise ValueError("Input must be 7 chars long.")
     rowRange = range(128)
     return calculateNumberByDirection(rowRange, rowInput, getNextRowRange)
 
@@ -16,20 +20,20 @@ def calculateNumberByDirection(valueRange: range, directions: str, func):
     for direction in directions:
         nextRange = func(currentRange, direction)
         currentRange = nextRange
-    if currentRange.start is currentRange.stop:
+    if currentRange.__len__() == 1:
         return int(currentRange.start)
 
 
 def getNextColumnRange(oldRange: range, direction: str):
     if direction == "L":
-        return oldRange[0:middleOf(oldRange) - 1]
+        return oldRange[0:middleOf(oldRange)]
     elif direction == "R":
         return oldRange[middleOf(oldRange):]
 
 
 def getNextRowRange(oldRange: range, direction: str) -> range:
     if direction == "F":
-        return oldRange[0:middleOf(oldRange) - 1]
+        return oldRange[0:middleOf(oldRange)]
     elif direction == "B":
         return oldRange[middleOf(oldRange):]
 
@@ -41,11 +45,21 @@ def middleOf(myRange: range):
 def getIdList(file):
     idList = []
     for boardingPass in boardingPassInput:
-        row = calculateSeatRow(boardingPass[0:6])
-        column = calculateSeatColumn(boardingPass[7:9])
+        row = calculateSeatRow(boardingPass[0:7])
+        column = calculateSeatColumn(boardingPass[7:10])
         boardingPassId = row * 8 + column
         idList.append(boardingPassId)
     return idList
+
+
+def getSortedIdList(unsortedIdList):
+    unsortedIdList.sort()
+
+
+def findMissingId(idList):
+    lowestNumber = idList[0]
+    highestNumber = idList[-1]
+    return [x for x in range(lowestNumber, highestNumber+1) if x not in idList]
 
 
 if __name__ == "__main__":
@@ -53,3 +67,6 @@ if __name__ == "__main__":
     idList = getIdList(boardingPassInput)
     print(idList)
     print("Highest ID: ", max(idList))
+    getSortedIdList(idList)
+    print(idList)
+    print(findMissingId(idList))
