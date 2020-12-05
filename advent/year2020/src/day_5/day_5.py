@@ -52,13 +52,9 @@ def getIdList(file):
     return idList
 
 
-def getSortedIdList(unsortedIdList):
-    unsortedIdList.sort()
-
-
 def findMissingId(idList):
-    lowestNumber = idList[0]
-    highestNumber = idList[-1]
+    lowestNumber = min(idList)
+    highestNumber = max(idList)
     return [x for x in range(lowestNumber, highestNumber+1) if x not in idList]
 
 
@@ -67,6 +63,5 @@ if __name__ == "__main__":
     idList = getIdList(boardingPassInput)
     print(idList)
     print("Highest ID: ", max(idList))
-    getSortedIdList(idList)
     print(idList)
     print(findMissingId(idList))

@@ -9,7 +9,8 @@ def getInputFileLinesAsString(fileName: str) -> str:
     return open(fileName).read()
 
 
-def readFileInput(file) -> list:
+def readFileInput(fileName: str) -> list:
+    file = open(fileName)
     inputList: List[str] = file.readlines()
     inputListConverted: list = []
     for elem in inputList:
