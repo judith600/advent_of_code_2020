@@ -21,7 +21,7 @@ class FuelRequirements():
 if __name__ == "__main__":
     fuel = FuelRequirements()
     result: int = 0
-    inputListConverted = readFileInput(openInputFile(2019, 'input.txt'))
+    inputListConverted = readFileInput(openInputFile(2019, 'input'))
     for elem in inputListConverted:
         result = result + fuel.calcExtraFuel(elem)
 

@@ -1,17 +1,15 @@
 from file_opener import *
 
 
-class DayMyDay:
-
-    def __init__(self):
-        self.wella = 'wella'
-
-    def test(self):
-        print('Made my day!!!', self.wella)
-        print(getInputFileLinesAsList('input_michel.txt'))
-        print(getInputFileLinesAsString('input_michel.txt'))
+def checkSum(numbers):
+    for firstNumber in numbers:
+        for secondNumber in numbers:
+            for thirdNumber in numbers:
+                if int(firstNumber) + int(secondNumber) + int(thirdNumber) == 2020:
+                    return int(firstNumber) * int(secondNumber) * int(thirdNumber)
 
 
 if __name__ == "__main__":
-    myDay = DayMyDay()
-    myDay.test()
+    numberList = getInputFileLinesAsList("input")
+    rightSum = checkSum(numberList)
+    print(rightSum)
