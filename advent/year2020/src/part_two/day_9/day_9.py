@@ -54,7 +54,7 @@ def verifyNumbers(numbers):
 
 
 if __name__ == '__main__':
-    numbers = parseData("input")
+    numbers = parseData("src/part_one/day_1/input")
     result = verifyNumbers(numbers)
     print(result)
 

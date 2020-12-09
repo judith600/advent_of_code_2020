@@ -48,6 +48,6 @@ def getAllBagsForBag(searchBag, bagRuleDict):
 
 
 if __name__ == '__main__':
-    bagDict = parseBagRules(getInputFileLinesAsList("input"))
+    bagDict = parseBagRules(getInputFileLinesAsList("src/part_one/day_1/input"))
     totalResult = getAllBagsForBag('shiny gold', bagDict)
     print(len(totalResult), totalResult)

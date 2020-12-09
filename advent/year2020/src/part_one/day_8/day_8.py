@@ -55,7 +55,7 @@ class JmpTask(Task):
 
 
 def parseInput():
-    taskInput = getInputFileLinesAsList("input")
+    taskInput = getInputFileLinesAsList("src/part_one/day_1/input")
     pattern = re.compile(r"(?P<task>[a-z]{3}) (?P<number>[+|-]\d+)")
     taskList = []
     for line in taskInput:

@@ -39,6 +39,6 @@ def countValidPasswordsPartTwo(passwordList: List[str]):
 
 
 if __name__ == "__main__":
-    fileInput = getInputFileLinesAsList("day_2_input.txt")
+    fileInput = getInputFileLinesAsList("src/part_one/day_2/day_2_input.txt")
     print(countValidPasswords(fileInput))
     print(countValidPasswordsPartTwo(fileInput))

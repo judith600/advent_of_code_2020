@@ -116,7 +116,7 @@ def getInvalidPropertiesPassports(passportDictList):
 
 
 if __name__ == "__main__":
-    data = getInputFileLinesAsList("input.txt")
+    data = getInputFileLinesAsList("src/part_one/day_4/input.txt")
     # data = getInputFileLinesAsList("invalid.txt")
     # data = getInputFileLinesAsList("valid.txt")
 

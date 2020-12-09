@@ -59,7 +59,7 @@ def findMissingId(idList):
 
 
 if __name__ == "__main__":
-    boardingPassInput = getInputFileLinesAsList("input_5.txt")
+    boardingPassInput = getInputFileLinesAsList("src/part_one/day_5/input_5.txt")
     idList = getIdList(boardingPassInput)
     print(idList)
     print("Highest ID: ", max(idList))

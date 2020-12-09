@@ -5,7 +5,7 @@ from file_opener import getInputFileLinesAsList
 
 
 def parseAnswers():
-    answers = getInputFileLinesAsList("input.txt")
+    answers = getInputFileLinesAsList("src/part_one/day_4/input.txt")
     answersGrouped = []
     for k, v in groupby(answers, lambda x: x != ''):
         if k:

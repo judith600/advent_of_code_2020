@@ -10,6 +10,6 @@ def checkSum(numbers):
 
 
 if __name__ == "__main__":
-    numberList = getInputFileLinesAsList("input")
+    numberList = getInputFileLinesAsList("src/part_one/day_1/input")
     rightSum = checkSum(numberList)
     print(rightSum)

@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 from file_opener import getInputFileLinesAsList
 
-mapTemplate = getInputFileLinesAsList("input")
+mapTemplate = getInputFileLinesAsList("src/part_one/day_1/input")
 highestIndex = len(mapTemplate[0]) - 1
 lastLine = len(mapTemplate) - 1
 
