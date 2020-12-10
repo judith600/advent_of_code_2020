@@ -4,7 +4,7 @@ from typing import List
 from file_opener import getInputFileLinesAsList
 
 
-def parseData(fileName):
+def getInputNumerical(fileName):
     numberStrings = getInputFileLinesAsList(fileName)
     return [int(line) for line in numberStrings]
 
@@ -54,7 +54,7 @@ def verifyNumbers(numbers):
 
 
 if __name__ == '__main__':
-    numbers = parseData("src/part_one/day_1/input")
+    numbers = getInputNumerical("src/part_one/day_1/input")
     result = verifyNumbers(numbers)
     print(result)
 
